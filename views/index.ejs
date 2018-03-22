@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <title>Test</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-   <div>
+   <div class="container" style="margin-top:100px;">
         <form id="uploadForm" enctype="multipart/form-data" action="upload" method="post">
-            <input type="file" name="file" />
-            <input type="submit" value="Upload" name="submit">
+            <input type="file" class="form-control" name="file" />
+            <br>
+            <input type="submit" class="btn btn-primary" value="Upload" name="submit">
         </form>
    </div>
 </body>

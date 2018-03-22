@@ -44,7 +44,6 @@ app.post('/upload', function(req, res) {
           res.json({error_code:1,err_desc:"No file passed"});
           return;
       }
-      console.log();
       if(req.file.originalname.split('.')[req.file.originalname.split('.').length-1] === 'xlsx'){
           exceltojson = xlsxtojson;
       } else {
@@ -74,14 +73,22 @@ app.get('/',(req,res)=>{
   res.render('index');
 });
 
-app.post('/',(req,res)=>{
-//   var newItem= new Item(req.body);
-//   newItem.save().then((doc)=>{
-//     res.send(doc);
-//   },(e)=>{
-//   res.status(400).send(e);
-//   });
+app.get('/view',(req,res)=>{
+    Item.find().then((items)=>{
+    res.render('items',{items:items});
+    },(err)=>{
+        console.log(err);
+    });
 });
+
+app.delete('/view/:id',(req,res)=>{
+    const itemId=req.params.id;
+    Item.findById(itemId).then((item)=>{
+        console.log(item)
+    },(e)=>{
+        console.log(e);
+    });
+})
 
 app.listen(3000,()=>{
   console.log('server started at port 3000');
